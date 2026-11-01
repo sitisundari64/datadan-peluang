@@ -1,0 +1,20 @@
+function resetGame() {
+  matches = 0;
+  selectedConcept = null;
+  selectedAnswer = null;
+
+  matchData.forEach(item => {
+    delete item.matched;
+  });
+
+  conceptOrder = shuffle(matchData.map((x,i) => i));
+  answerOrder = shuffle(matchData.map((x,i) => i));
+
+  document.getElementById('matchScore').textContent =
+    'Pasangan benar: 0/6';
+
+  document.getElementById('matchFeedback').textContent =
+    'Pilih kartu konsep terlebih dahulu.';
+
+  renderMatch();
+}
